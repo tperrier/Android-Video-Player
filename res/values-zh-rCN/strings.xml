@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">WW视频播放器</string>
+    <string name="icon_file_type">文件类型图标</string>
+    <string name="icon_background">背景图标</string>
+	<string name="list_open_file">打开文件</string>
+    <string name="menu_open">打开</string>
+    <string name="menu_language">语言 (Language)</string>
+    <string name="prompt_open_video">点击“打开”按钮以播放视频剪辑</string>
+    <string name="title_activity_list_file">列出文件Activity</string>
+    <string name="title_activity_language_settings">语言设置Activity</string>
+    <string name="title_choose_file">选择一个文件</string>
+    <string name="title_choose_lang">选择一种语言</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">设置</string>
+    <string name="title_activity_play_video">视频播放Activity</string>
+    <string name="title_now_playing">现在播放</string>
+
+</resources>

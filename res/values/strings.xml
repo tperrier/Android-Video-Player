@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WWVideoPlayer</string>
+    <string name="icon_file_type">File Type Icon</string>
+    <string name="icon_background">Background Icon</string>
+    <string name="list_open_file">Open a File</string>
+    <string name="menu_open">Open</string>
+    <string name="menu_language">Language</string>
+    <string name="prompt_open_video">Press "OPEN" button to play a video clip</string>
+    <string name="title_activity_list_file">ListFileActivity</string>
+    <string name="title_activity_language_settings">LanguageSettingsActivity</string>
+    <string name="title_choose_file">Choose a file</string>
+    <string name="title_choose_lang">Choose a language</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_play_video">PlayVideoActivity</string>
+    <string name="title_now_playing">Now Playing</string>
+</resources>

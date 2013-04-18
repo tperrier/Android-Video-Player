@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/browse_files_play" 
+        android:title="@string/menu_open" 
+        android:showAsAction="ifRoom|withText" 
+        android:icon="@drawable/menu_icon_open"
+        android:onClick="listFile"></item>
+</menu>

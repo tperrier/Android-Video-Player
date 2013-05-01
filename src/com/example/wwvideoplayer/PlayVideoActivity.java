@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -32,6 +33,7 @@ public class PlayVideoActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play_video);
 		this.setTitle(R.string.title_now_playing);
@@ -42,6 +44,7 @@ public class PlayVideoActivity extends Activity {
 		
 		processVideoView(path);
 		processListView(path);
+		
 	}
 
 	@Override
@@ -84,21 +87,6 @@ public class PlayVideoActivity extends Activity {
         			videoView.seekTo(jumpTo * 1000); //change seconds to milliseconds
         			//videoView.start();
         		  }
-        		  //Log.e("TAG", "---------------\t " + jumpTo);
-        		  //videoView.getDuration();
-        		  //Log.e("TAG", "---------------\t " + videoView.getDuration());
-        		  //Log.e("TAG", "---------------\t " + videoView.getCurrentPosition());
-        		//Toast.makeText(getApplicationContext(),
-        	   //vv.getDuration(), Toast.LENGTH_SHORT)
-        	    //.show();
-        		  
-        		  
-        	    //Toast.makeText(getApplicationContext(),
-        	      //"Click ListItem Number " + position, Toast.LENGTH_LONG)
-        	      //.show();
-        	    
-        	    
-        	    
         	  }
         	}); 
         

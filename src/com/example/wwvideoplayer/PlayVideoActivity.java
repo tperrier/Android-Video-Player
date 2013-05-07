@@ -16,7 +16,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -40,10 +42,9 @@ public class PlayVideoActivity extends Activity {
 		Intent intent = getIntent();
 		String path = intent.getStringExtra(ListFileActivity.EXTRA_MESSAGE);
 		processJson(path.substring(0, path.length() - 4) + ".json");
-		
-		
-		processVideoView(path);
+				
 		processListView(path);
+		processVideoView(path);
 		
 	}
 
@@ -75,6 +76,7 @@ public class PlayVideoActivity extends Activity {
                 new String[] {"tag","time"},
                 new int[] {android.R.id.text1,android.R.id.text2});
         lv.setAdapter(adapter);
+        lv.setVisibility(View.INVISIBLE);
         
         //listview listener
         lv.setOnItemClickListener(new OnItemClickListener() {
@@ -103,6 +105,22 @@ public class PlayVideoActivity extends Activity {
 		videoView.setVideoPath(path);
 		videoView.start();  
 		videoView.requestFocus(); 
+		videoView.setOnTouchListener(new OnTouchListener() {
+			private boolean lvShowed = false;
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+            	if (lvShowed) {
+            		lv.setVisibility(View.INVISIBLE);
+            		lvShowed = false;
+            	} else {
+            		lv.setVisibility(View.VISIBLE);
+            		lvShowed = true;
+            	}
+            	
+				return false;
+			}
+		});	
     }
 
     private void processJson(String path) {

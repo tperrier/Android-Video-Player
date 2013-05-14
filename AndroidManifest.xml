@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="7"
+        android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
     <application
@@ -38,6 +38,11 @@
             android:name="com.example.wwvideoplayer.PlayVideoActivity"
             android:label="@string/title_activity_play_video"
             android:screenOrientation="landscape" >
+            <intent-filter>
+				<action android:name="android.intent.action.VIEW"></action>
+				<category android:name="android.intent.category.DEFAULT"></category>
+				<data android:mimeType="video/mp4"></data>
+			</intent-filter>
         </activity>
     </application>
 

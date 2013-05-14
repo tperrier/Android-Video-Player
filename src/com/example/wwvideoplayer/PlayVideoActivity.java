@@ -11,6 +11,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,17 +33,29 @@ public class PlayVideoActivity extends Activity {
 	public TreeMap<Integer, ArrayList<String>> allTags;
 	public VideoView videoView;
 	public ListView lv;
+	private boolean actionBarHide = true;
+	private ActionBar actionBar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play_video);
+		actionBar = getActionBar();
+		actionBar.hide();
 		this.setTitle(R.string.title_now_playing);
 		Intent intent = getIntent();
-		String path = intent.getStringExtra(ListFileActivity.EXTRA_MESSAGE);
+		String action = intent.getAction();
+		String path = "";
+		if(Intent.ACTION_VIEW.equals(action)){
+			path = intent.getData().getPath();
+		} else {
+			path = intent.getStringExtra(ListFileActivity.EXTRA_MESSAGE);
+		}
+		//Toast.makeText(getApplicationContext(), path, Toast.LENGTH_LONG).show();
+		
 		processJson(path.substring(0, path.length() - 4) + ".json");
-				
+		
 		processListView(path);
 		processVideoView(path);
 		
@@ -116,6 +129,14 @@ public class PlayVideoActivity extends Activity {
             	} else {
             		lv.setVisibility(View.VISIBLE);
             		lvShowed = true;
+            	}
+            	
+            	if (actionBarHide) {
+            		actionBar.show();
+            		actionBarHide = false;
+            	} else {
+            		actionBar.hide();
+            		actionBarHide = true;
             	}
             	
 				return false;

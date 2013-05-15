@@ -2,11 +2,9 @@
 	<item android:id="@+id/change_language_main" 
         android:title="@string/menu_language" 
         android:showAsAction="ifRoom|withText" 
-        android:icon="@drawable/menu_icon_lang"
-        android:onClick="changeLanguage"></item>
+        android:icon="@drawable/menu_icon_lang"></item>
     <item android:id="@+id/browse_files_main" 
         android:title="@string/menu_open" 
         android:showAsAction="ifRoom|withText" 
-        android:icon="@drawable/menu_icon_open"
-        android:onClick="listFile"></item>
+        android:icon="@drawable/menu_icon_open"></item>
 </menu>

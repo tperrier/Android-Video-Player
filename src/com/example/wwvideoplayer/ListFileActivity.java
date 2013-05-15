@@ -95,7 +95,8 @@ public class ListFileActivity extends ListActivity {
         	
         	String[] fileNameStrings = file.getName().split("\\.");
         	if (fileNameStrings.length > 1) {
-        		if (fileNameStrings[fileNameStrings.length - 1].toLowerCase().equals("mp4")) {
+        		if (fileNameStrings[fileNameStrings.length - 1].toLowerCase().equals("mp4") ||
+        		        fileNameStrings[fileNameStrings.length - 1].toLowerCase().equals("3gp")) {
         			
         			return true;
         		}

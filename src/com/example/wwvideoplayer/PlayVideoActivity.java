@@ -68,6 +68,21 @@ public class PlayVideoActivity extends Activity {
 		return true;
 	}
 	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // CAUTION: Compatibility Issue
+        // Must not attach any functions to any menu items.
+        // Instead, attach them all here for the app to work on
+        // some special tablets like SCOMP...
+       switch (item.getItemId()) {
+           case R.id.browse_files_play:
+               listFile(item);
+               return true; 
+           default:
+               return super.onOptionsItemSelected(item);
+       }
+    }
+	
     public void listFile(MenuItem i) {
         // Do something in response to button
     	Intent intent = new Intent(this, ListFileActivity.class);
@@ -85,9 +100,9 @@ public class PlayVideoActivity extends Activity {
         	}
         
         SimpleAdapter adapter=new SimpleAdapter(this, 
-                alist, android.R.layout.two_line_list_item, 
+                alist, R.layout.movie_frame_item, 
                 new String[] {"tag","time"},
-                new int[] {android.R.id.text1,android.R.id.text2});
+                new int[] {R.id.item_text1, R.id.item_text2});
         lv.setAdapter(adapter);
         lv.setVisibility(View.INVISIBLE);
         
@@ -98,9 +113,16 @@ public class PlayVideoActivity extends Activity {
         	    int position, long id) {
         		  int jumpTo = (Integer) allTags.keySet().toArray()[position];
         		  if (!(jumpTo * 1000 > videoView.getDuration())) {
+        		    // pause current frame
         			videoView.pause();
+        			// change frame
         			videoView.seekTo(jumpTo * 1000); //change seconds to milliseconds
-        			//videoView.start();
+        			
+        			// CAUTION: Compatibility Issue
+        			// The following two lines seem stupid, but needed
+        			// for the app to work on some special tablets like SCOMP...
+                    videoView.start();
+                    videoView.pause();
         		  }
         	  }
         	}); 
@@ -113,7 +135,7 @@ public class PlayVideoActivity extends Activity {
 		MediaController mc = new MediaController(this, true);
 		//mc.setAnchorView(videoView);
 		
-		videoView.setMediaController(mc);  			
+		videoView.setMediaController(mc); 
 
 		videoView.setVideoPath(path);
 		videoView.start();  

@@ -31,6 +31,24 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+        // CAUTION: Compatibility Issue
+        // Must not attach any functions to any menu items.
+	    // Instead, attach them all here for the app to work on
+	    // some special tablets like SCOMP...
+	   switch (item.getItemId()) {
+	      case R.id.change_language_main:
+	         changeLanguage(item);
+	         return true;
+         case R.id.browse_files_main:
+             listFile(item);
+             return true; 
+	      default:
+	         return super.onOptionsItemSelected(item);
+	   }
+	}
+	
     public void listFile(MenuItem i) {
         // Do something in response to button
     	Intent intent = new Intent(this, ListFileActivity.class);

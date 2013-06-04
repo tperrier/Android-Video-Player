@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 	      case R.id.change_language_main:
 	         changeLanguage(item);
 	         return true;
-         case R.id.browse_files_main:
+          case R.id.browse_files_main:
              listFile(item);
              return true; 
 	      default:

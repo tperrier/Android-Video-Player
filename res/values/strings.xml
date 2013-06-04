@@ -16,4 +16,7 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_play_video">PlayVideoActivity</string>
     <string name="title_now_playing">Now Playing</string>
+    <string name="rewind_button_description">video_rewind</string>
+    <string name="pause_play_button_description">video_pause_and_play</string>
+    <string name="forward_button_description">video_forward</string>
 </resources>
